@@ -24,6 +24,7 @@
     ]
   },
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.1.16",
     "@headlessui/react": "^1.1.1",
     "@heroicons/react": "^1.0.1",
     "@next/bundle-analyzer": "^11.0.1",
