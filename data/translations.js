@@ -1,42 +1,46 @@
 import { getHumanReadableDistance } from 'utils/helpers'
 
-const headings = {
-  checkOut: {
+export const headings = [
+  {
     en: 'Check out...',
     zh: '去li lan間',
   },
-  haveYouTried: {
-    en: 'Have you fucking tried...',
+  {
+    en: 'Sup. Have you tried',
     zh: '去li lan間',
   },
-  howAbout: {
+  {
     en: 'How about...',
     zh: '去li lan間',
   },
-  iHeardThisPlaceWasLit: {
+  {
     en: 'Yo I heard this place was lit af',
     zh: '去li lan間',
   },
-}
+]
 
-const skipTexts = {
-  aintIt: {
+export const skipTexts = [
+  {
     en: "This place ain't it",
     zh: '別的地方',
   },
-  enlightenMe: {
+  {
     en: 'Enlighten me with another restaurant',
     zh: '別的地方',
   },
-  humorMe: {
+  {
     en: 'Humor me with another restaurant',
     zh: '別的地方',
   },
-  showMe: {
+  {
     en: 'Show me another restaurant',
     zh: '別的地方',
   },
-}
+  {
+    en: 'Fuck this place',
+    zh: '別的地方',
+  },
+]
 
 const translations = {
   priceLevel1: {

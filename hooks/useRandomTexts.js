@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
-import headings from 'data/headings'
-import skipTexts from 'data/skip-texts'
-import t from 'data/translations'
+import { skipTexts, headings } from 'data/translations'
 import { getRandom } from 'utils/helpers'
 
 export default function useRandomTexts(language) {
@@ -9,8 +7,8 @@ export default function useRandomTexts(language) {
   const [skipText, setSkipText] = useState('')
 
   const updatePrompts = () => {
-    setHeading(t[getRandom(headings)][language])
-    setSkipText(t[getRandom(skipTexts)][language])
+    setSkipText(getRandom(skipTexts)[language])
+    setHeading(getRandom(headings)[language])
   }
 
   useEffect(() => {
