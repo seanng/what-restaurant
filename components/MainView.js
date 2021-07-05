@@ -27,7 +27,7 @@ function MainView({
         <a href={googleMapLink} target="_blank" rel="noreferrer">
           {place.vicinity}
         </a>
-        <span className="ml-4 text-green-600">{distance}</span>
+        <span className="ml-4 text-green-600">{`${distance} away`}</span>
       </p>
       {place.rating && (
         <div className="inline-flex">

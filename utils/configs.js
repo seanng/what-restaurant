@@ -1,4 +1,4 @@
-export const INITIAL_RADIUS = 5000
+export const INITIAL_RADIUS = 800
 export const radiuses = [
   100,
   200,

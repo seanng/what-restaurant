@@ -1,3 +1,5 @@
+import { getHumanReadableDistance } from 'utils/helpers'
+
 const headings = {
   checkOut: {
     en: 'Check out...',
@@ -62,8 +64,8 @@ const translations = {
     zh: 'Expand my search radius',
   },
   withinRadius: (radius) => ({
-    en: `within ${radius}m of your current location`,
-    zh: `within ${radius}m of 你的 current location`,
+    en: `within ${getHumanReadableDistance(radius)} of your current location`,
+    zh: `within ${getHumanReadableDistance(radius)} of 你的 current location`,
   }),
 }
 
