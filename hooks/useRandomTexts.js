@@ -19,5 +19,7 @@ export default function useRandomTexts(language) {
     updatePrompts,
     heading,
     skipText,
+    setSkipText,
+    setHeading,
   }
 }

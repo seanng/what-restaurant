@@ -1,6 +1,6 @@
 /* eslint-disable no-await-in-loop */
 /* global navigator */
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import {
   LOADING,
@@ -97,11 +97,6 @@ export default function useApi() {
     }
   }
 
-  useEffect(() => {
-    // TODO: uncomment fetchPlaces
-    fetchPlaces()
-  }, [])
-
   return {
     fetchPlaces,
     mode,
@@ -109,5 +104,6 @@ export default function useApi() {
     setRandomPlace,
     allPlaces,
     currentLatLng,
+    setPlace,
   }
 }

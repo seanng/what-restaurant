@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-onchange */
 /* eslint-disable no-await-in-loop */
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import LoadingView from 'components/LoadingView'
 import MainView from 'components/MainView'
 import SpinnerModal from 'components/SpinnerModal'
@@ -16,12 +17,65 @@ import { getDistanceFromLatLon } from 'utils/helpers'
 
 function IndexPage() {
   const [language] = useState('en')
-  const { updatePrompts, heading, skipText } = useRandomTexts(language)
-  const { fetchPlaces, place, mode, setRandomPlace, currentLatLng } = useApi()
+  const [history, setHistory] = useState([])
+  const router = useRouter()
+  const { query } = router
+
+  const {
+    updatePrompts,
+    heading,
+    skipText,
+    setSkipText,
+    setHeading,
+  } = useRandomTexts(language)
+
+  const {
+    fetchPlaces,
+    place,
+    mode,
+    setRandomPlace,
+    currentLatLng,
+    setPlace,
+  } = useApi()
+
+  useEffect(() => {
+    const idx = Number(query.idx || 0)
+    if (history[idx]) {
+      setPlace(history[idx].place)
+      setHeading(history[idx].heading)
+      setSkipText(history[idx].skipText)
+    } else {
+      setHistory((v) =>
+        v.concat([
+          {
+            place,
+            heading,
+            skipText,
+          },
+        ])
+      )
+    }
+  }, [query.idx])
+
+  useEffect(() => {
+    // initial load.
+    fetchPlaces()
+    // clear url in case someone shares a link with idx=<number>
+    router.replace('/', '/', { shallow: true })
+  }, [])
 
   const handleSkipClick = () => {
     setRandomPlace()
     updatePrompts()
+
+    // update history
+    const idx = Number(query.idx || 0)
+    const isAtPastPlace = idx < history.length
+    const href = `/?idx=${idx + 1}`
+    if (isAtPastPlace) {
+      setHistory((v) => v.slice(0, idx).concat([{ place, heading, skipText }]))
+    }
+    router.push(href, href, { shallow: true })
   }
 
   const handleRadiusChange = async (el) => {
