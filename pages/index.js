@@ -3,19 +3,21 @@
 import { useState } from 'react'
 import LoadingView from 'components/LoadingView'
 import MainView from 'components/MainView'
+import SpinnerModal from 'components/SpinnerModal'
 import useRandomTexts from 'hooks/useRandomTexts'
 import useApi from 'hooks/useApi'
 import {
-  // REFETCHING,
+  REFETCHING,
   LOADING,
   NO_NEARBY_RESTAURANT,
   // SUCCESS,
 } from 'utils/constants'
+import { getDistanceFromLatLon } from 'utils/helpers'
 
 function IndexPage() {
   const [language] = useState('en')
   const { updatePrompts, heading, skipText } = useRandomTexts(language)
-  const { fetchPlaces, place, mode, setRandomPlace } = useApi()
+  const { fetchPlaces, place, mode, setRandomPlace, currentLatLng } = useApi()
 
   const handleSkipClick = () => {
     setRandomPlace()
@@ -35,23 +37,33 @@ function IndexPage() {
     return <div>no nearby place... please widen your search scope :(</div>
   }
 
+  const distance = getDistanceFromLatLon(
+    currentLatLng[0],
+    currentLatLng[1],
+    place.geometry.location.lat,
+    place.geometry.location.lng
+  )
+
   // if (mode !== SUCCESS) {
   //   return <div>{mode}</div>
   // }
 
   // success
   return (
-    <MainView
-      {...{
-        mode,
-        heading,
-        skipText,
-        place,
-        language,
-        onSkipClick: handleSkipClick,
-        onRadiusChange: handleRadiusChange,
-      }}
-    />
+    <>
+      <MainView
+        {...{
+          heading,
+          skipText,
+          place,
+          language,
+          onSkipClick: handleSkipClick,
+          onRadiusChange: handleRadiusChange,
+          distance,
+        }}
+      />
+      <SpinnerModal shouldOpen={mode === REFETCHING} />
+    </>
   )
 }
 

@@ -20,6 +20,7 @@ export default function useApi() {
   const [mode, setMode] = useState(LOADING)
   const [place, setPlace] = useState(dummyResults[0])
   const [allPlaces, setAllPlaces] = useState(dummyResults)
+  const [currentLatLng, setCurrentLatLng] = useState([0, 0])
   // const [place, setPlace] = useState(null)
   // const [allPlaces, setAllPlaces] = useState([])
 
@@ -35,25 +36,25 @@ export default function useApi() {
 
   async function fetchPlaces(payload) {
     return new Promise((resolve) => {
+      if (mode !== LOADING) {
+        setMode(REFETCHING)
+      }
       if (!navigator.geolocation) {
         setMode(NO_GEOLOCATION)
       }
 
-      navigator.geolocation.getCurrentPosition(
-        (position) => handleRequest(position, payload, resolve),
-        handleNavigatorError
-      )
+      navigator.geolocation.getCurrentPosition(({ coords }) => {
+        setCurrentLatLng([coords.latitude, coords.longitude])
+        handleRequest(coords, payload, resolve)
+      }, handleNavigatorError)
     })
   }
 
   async function handleRequest(
-    { coords: { longitude, latitude } },
+    { longitude, latitude },
     payload = {},
     cb = () => {}
   ) {
-    if (mode !== LOADING) {
-      setMode(REFETCHING)
-    }
     let pagetoken
     let results = []
     do {
@@ -107,5 +108,6 @@ export default function useApi() {
     place,
     setRandomPlace,
     allPlaces,
+    currentLatLng,
   }
 }

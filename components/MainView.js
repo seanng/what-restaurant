@@ -5,13 +5,13 @@ import t from 'data/translations'
 import { GOOGLE_PLACES_URL } from 'utils/constants'
 
 function MainView({
-  // mode,
   heading,
   skipText,
   place,
   language,
   onSkipClick,
   onRadiusChange,
+  distance,
 }) {
   const googleMapLink = `${GOOGLE_PLACES_URL}/?q=place_id:${place.place_id}`
 
@@ -27,6 +27,7 @@ function MainView({
         <a href={googleMapLink} target="_blank" rel="noreferrer">
           {place.vicinity}
         </a>
+        <span className="ml-4 text-green-600">{distance}</span>
       </p>
       {place.rating && (
         <div className="inline-flex">
