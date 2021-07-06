@@ -63,12 +63,12 @@ export const skipTexts = [
 
 const translations = {
   enableLocationHeading: {
-    en: 'REFRESH THIS PAGE AFTER YOU',
+    en: 'ENABLE YOUR LOCATION',
     zh: 'ENABLE YOUR LOCATION',
   },
   enableLocationPrompt: {
-    en: "Yo... the site won't work if we can't detect where you are.",
-    zh: "Yo... the site won't work if we can't detect where you are.",
+    en: 'Refresh this page after you',
+    zh: 'Refresh this page after you',
   },
   expandMyRadius: {
     en: 'Expand my search radius',
