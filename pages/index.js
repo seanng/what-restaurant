@@ -90,7 +90,7 @@ function IndexPage() {
   }
 
   if (mode === LOADING) {
-    return <LoadingView />
+    return <LoadingView language={language} />
   }
 
   if (mode === POSITION_PERMISSION_DENIED) {

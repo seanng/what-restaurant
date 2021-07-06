@@ -1,5 +1,12 @@
 import { getHumanReadableDistance } from 'utils/helpers'
 
+export const loadingTexts = [
+  {
+    en: 'Finding nearby restaurants...',
+    zh: 'Generating the yummiest restaurants',
+  },
+]
+
 export const headings = [
   {
     en: 'Check out...',
