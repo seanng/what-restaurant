@@ -1,4 +1,5 @@
 import t from 'data/translations'
+import StickyFooter from 'components/StickyFooter'
 import RadiusSelect from 'components/RadiusSelect'
 
 export default function NoPlacesView({ language, onRadiusChange, radius }) {
@@ -15,6 +16,7 @@ export default function NoPlacesView({ language, onRadiusChange, radius }) {
         language={language}
         onRadiusChange={onRadiusChange}
       />
+      <StickyFooter />
     </div>
   )
 }

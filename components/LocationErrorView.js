@@ -1,3 +1,4 @@
+import StickyFooter from 'components/StickyFooter'
 import t from 'data/translations'
 
 export default function LocationErrorView({ language }) {
@@ -9,6 +10,7 @@ export default function LocationErrorView({ language }) {
       <h1 className="text-3xl md:text-5xl mb-2 md:mb-6">
         {t.enableLocationHeading[language]}
       </h1>
+      <StickyFooter />
     </div>
   )
 }

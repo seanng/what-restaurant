@@ -2,6 +2,7 @@ import Stars from 'components/Stars'
 import RadiusSelect from 'components/RadiusSelect'
 import t from 'data/translations'
 import { GOOGLE_PLACES_URL } from 'utils/constants'
+import StickyFooter from 'components/StickyFooter'
 
 function MainView({
   heading,
@@ -54,6 +55,7 @@ function MainView({
         language={language}
         onRadiusChange={onRadiusChange}
       />
+      <StickyFooter />
     </div>
   )
 }

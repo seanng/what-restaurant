@@ -1,3 +1,10 @@
+import StickyFooter from 'components/StickyFooter'
+
 export default function LoadingView() {
-  return <div>loading up application...</div>
+  return (
+    <div className="container">
+      <span>loading application...</span>
+      <StickyFooter />
+    </div>
+  )
 }
