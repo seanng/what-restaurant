@@ -43,6 +43,28 @@ export const skipTexts = [
 ]
 
 const translations = {
+  enableLocationHeading: {
+    en: 'Refresh this page after enabling your location!',
+    zh: 'Please enable your location!',
+  },
+  enableLocationPrompt: {
+    en: "Yo... the site won't work if we can't detect where you are.",
+    zh: "Yo... the site won't work if we can't detect where you are.",
+  },
+  expandMyRadius: {
+    en: 'Expand my search radius',
+    zh: 'Expand my search radius',
+  },
+  noPlacesNearbyPrompt: (radius) => ({
+    en: `There are no places that are open within ${getHumanReadableDistance(
+      radius
+    )} of your current location`,
+    zh: 'There are no places in the selected vicinity.',
+  }),
+  noPlacesNearbyHeading: {
+    en: 'Please widen your search radius!',
+    zh: 'Please widen your search radius!',
+  },
   priceLevel1: {
     en: '💸  (Under $100)',
     zh: '💸  ($100 yi har)',
@@ -62,10 +84,6 @@ const translations = {
   priceLevel5: {
     en: '💸 💸 💸 💸 💸  (Over $800)',
     zh: '💸 💸 💸 💸 💸  (Over $800)',
-  },
-  expandMyRadius: {
-    en: 'Expand my search radius',
-    zh: 'Expand my search radius',
   },
   withinRadius: (radius) => ({
     en: `within ${getHumanReadableDistance(radius)} of your current location`,

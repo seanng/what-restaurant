@@ -5,24 +5,27 @@ import { useRouter } from 'next/router'
 import LoadingView from 'components/LoadingView'
 import MainView from 'components/MainView'
 import SpinnerModal from 'components/SpinnerModal'
+import LocationErrorView from 'components/LocationErrorView'
+import NoPlacesView from 'components/NoPlacesView'
 import useRandomTexts from 'hooks/useRandomTexts'
 import useApi from 'hooks/useApi'
 import {
   REFETCHING,
   LOADING,
-  NO_NEARBY_RESTAURANT,
+  POSITION_PERMISSION_DENIED,
   // SUCCESS,
 } from 'utils/constants'
 import { getDistanceFromLatLon } from 'utils/helpers'
+import { INITIAL_RADIUS } from 'utils/configs'
 
 function IndexPage() {
   const [language] = useState('en')
   const [history, setHistory] = useState([])
+  const [radius, setRadius] = useState(INITIAL_RADIUS)
   const router = useRouter()
-  const { query } = router
 
   const {
-    updatePrompts,
+    setRandomPrompts,
     heading,
     skipText,
     setSkipText,
@@ -39,7 +42,7 @@ function IndexPage() {
   } = useApi()
 
   useEffect(() => {
-    const idx = Number(query.idx || 0)
+    const idx = Number(router.query.idx || 0)
     if (history[idx]) {
       setPlace(history[idx].place)
       setHeading(history[idx].heading)
@@ -55,10 +58,11 @@ function IndexPage() {
         ])
       )
     }
-  }, [query.idx])
+  }, [router.query.idx])
 
+  // initial load.
   useEffect(() => {
-    // initial load.
+    setRandomPrompts()
     fetchPlaces()
     // clear url in case someone shares a link with idx=<number>
     router.replace('/', '/', { shallow: true })
@@ -66,10 +70,10 @@ function IndexPage() {
 
   const handleSkipClick = () => {
     setRandomPlace()
-    updatePrompts()
+    setRandomPrompts()
 
     // update history
-    const idx = Number(query.idx || 0)
+    const idx = Number(router.query.idx || 0)
     const isAtPastPlace = idx < history.length
     const href = `/?idx=${idx + 1}`
     if (isAtPastPlace) {
@@ -79,16 +83,29 @@ function IndexPage() {
   }
 
   const handleRadiusChange = async (el) => {
-    await fetchPlaces({ radius: el.target.value })
-    updatePrompts()
+    const { value } = el.target
+    setRadius(Number(value))
+    await fetchPlaces({ radius: value })
+    setRandomPrompts()
   }
 
   if (mode === LOADING) {
     return <LoadingView />
   }
 
-  if (mode === NO_NEARBY_RESTAURANT || !place) {
-    return <div>no nearby place... please widen your search scope :(</div>
+  if (mode === POSITION_PERMISSION_DENIED) {
+    return <LocationErrorView language={language} />
+  }
+
+  if (!place) {
+    return (
+      <>
+        <NoPlacesView
+          {...{ language, radius, onRadiusChange: handleRadiusChange }}
+        />
+        <SpinnerModal shouldOpen={mode === REFETCHING} />
+      </>
+    )
   }
 
   const distance = getDistanceFromLatLon(
@@ -98,11 +115,6 @@ function IndexPage() {
     place.geometry.location.lng
   )
 
-  // if (mode !== SUCCESS) {
-  //   return <div>{mode}</div>
-  // }
-
-  // success
   return (
     <>
       <MainView
@@ -113,6 +125,7 @@ function IndexPage() {
           language,
           onSkipClick: handleSkipClick,
           onRadiusChange: handleRadiusChange,
+          radius,
           distance,
         }}
       />

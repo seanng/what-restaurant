@@ -26,10 +26,6 @@ export default function useApi() {
 
   function setRandomPlace(list = allPlaces) {
     const randomPlace = getRandom(list)
-    if (!randomPlace) {
-      setMode(NO_NEARBY_RESTAURANT)
-      return
-    }
     // const placeWithPhotoUrl = await getPlaceWithPhotoUrl(randomPlace)
     setPlace(randomPlace)
   }
@@ -64,6 +60,11 @@ export default function useApi() {
         pagetoken,
         location: { longitude, latitude },
       })
+      if (data.results.length === 0) {
+        setPlace(null)
+        setMode(NO_NEARBY_RESTAURANT)
+        return
+      }
       // during first iteration
       if (!pagetoken) {
         setRandomPlace(data.results)

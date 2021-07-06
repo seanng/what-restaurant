@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/no-onchange */
-import { radiuses, INITIAL_RADIUS } from 'utils/configs'
 import Stars from 'components/Stars'
+import RadiusSelect from 'components/RadiusSelect'
 import t from 'data/translations'
 import { GOOGLE_PLACES_URL } from 'utils/constants'
 
@@ -11,6 +10,7 @@ function MainView({
   language,
   onSkipClick,
   onRadiusChange,
+  radius,
   distance,
 }) {
   const googleMapLink = `${GOOGLE_PLACES_URL}/?q=place_id:${place.place_id}`
@@ -49,18 +49,11 @@ function MainView({
           {skipText}
         </span>
       </div>
-      <select
-        id="radiusSelect"
-        className="mt-1 pl-0 pr-7 font-extralight text-gray-400 text-xs border-transparent focus:outline-none md:text-lg"
-        defaultValue={INITIAL_RADIUS}
-        onChange={onRadiusChange}
-      >
-        {radiuses.map((val) => (
-          <option key={val} value={val}>
-            {t.withinRadius(val)[language]}
-          </option>
-        ))}
-      </select>
+      <RadiusSelect
+        radius={radius}
+        language={language}
+        onRadiusChange={onRadiusChange}
+      />
     </div>
   )
 }
