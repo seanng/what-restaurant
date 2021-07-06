@@ -105,8 +105,8 @@ const translations = {
     zh: '💸 💸 💸 💸 💸  (Over $800)',
   },
   withinRadius: (radius) => ({
-    en: `within ${getHumanReadableDistance(radius)} of your current location`,
-    zh: `within ${getHumanReadableDistance(radius)} of 你的 current location`,
+    en: `within ${getHumanReadableDistance(radius)} of my location`,
+    zh: `within ${getHumanReadableDistance(radius)} of my location`,
   }),
 }
 
