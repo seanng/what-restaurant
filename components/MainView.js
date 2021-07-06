@@ -18,8 +18,8 @@ function MainView({
 
   return (
     <div className="container">
-      <p className="text-base md:text-2xl mt-16 mb-10">{heading}</p>
-      <h1 className="text-3xl md:text-5xl mb-2 md:mb-6">
+      <p className="text-base md:text-2xl mt-16 mb-10 uppercase">{heading}</p>
+      <h1 className="text-3xl md:text-5xl mb-2 md:mb-6 uppercase">
         <a href={googleMapLink} target="_blank" rel="noreferrer">
           {place.name}
         </a>
@@ -41,7 +41,7 @@ function MainView({
           {t[`priceLevel${place.price_level}`][language]}
         </h2>
       )}
-      <div className="mt-10 md:mt-16 mb-2 md:mb-5">
+      <div className="mt-10 md:mt-16 mb-4 md:mb-8">
         <span
           aria-hidden
           onClick={onSkipClick}

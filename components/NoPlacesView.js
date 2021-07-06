@@ -8,7 +8,7 @@ export default function NoPlacesView({ language, onRadiusChange, radius }) {
       <p className="text-base md:text-2xl mt-16 mb-10">
         {t.noPlacesNearbyPrompt(radius)[language]}
       </p>
-      <h1 className="text-3xl md:text-5xl mb-2 md:mb-6">
+      <h1 className="text-3xl md:text-5xl mb-2 md:mb-6 uppercase">
         {t.noPlacesNearbyHeading[language]}
       </h1>
       <RadiusSelect

@@ -2,14 +2,18 @@ import { getHumanReadableDistance } from 'utils/helpers'
 
 export const loadingTexts = [
   {
-    en: 'Finding nearby restaurants...',
-    zh: 'Generating the yummiest restaurants',
+    en: 'FINDING NEARBY RESTAURANTS...',
+    zh: 'FINDING NEARBY RESTAURANTS...',
   },
 ]
 
 export const headings = [
   {
-    en: 'Check out...',
+    en: 'Check out',
+    zh: '去li lan間',
+  },
+  {
+    en: 'Eat some of this',
     zh: '去li lan間',
   },
   {
@@ -17,7 +21,11 @@ export const headings = [
     zh: '去li lan間',
   },
   {
-    en: 'How about...',
+    en: 'How about',
+    zh: '去li lan間',
+  },
+  {
+    en: 'Yo what about',
     zh: '去li lan間',
   },
   {
@@ -28,15 +36,19 @@ export const headings = [
 
 export const skipTexts = [
   {
+    en: 'Naw dawg',
+    zh: '別的地方',
+  },
+  {
     en: "This place ain't it",
     zh: '別的地方',
   },
   {
-    en: 'Enlighten me with another restaurant',
+    en: "I'm not feelin it",
     zh: '別的地方',
   },
   {
-    en: 'Humor me with another restaurant',
+    en: 'Humor me with another place',
     zh: '別的地方',
   },
   {
@@ -51,8 +63,8 @@ export const skipTexts = [
 
 const translations = {
   enableLocationHeading: {
-    en: 'Refresh this page after enabling your location!',
-    zh: 'Please enable your location!',
+    en: 'REFRESH THIS PAGE AFTER YOU',
+    zh: 'ENABLE YOUR LOCATION',
   },
   enableLocationPrompt: {
     en: "Yo... the site won't work if we can't detect where you are.",
@@ -63,14 +75,14 @@ const translations = {
     zh: 'Expand my search radius',
   },
   noPlacesNearbyPrompt: (radius) => ({
-    en: `There are no places that are open within ${getHumanReadableDistance(
+    en: `No places are open within ${getHumanReadableDistance(
       radius
     )} of your current location`,
     zh: 'There are no places in the selected vicinity.',
   }),
   noPlacesNearbyHeading: {
-    en: 'Please widen your search radius!',
-    zh: 'Please widen your search radius!',
+    en: 'Widen your search radius',
+    zh: 'Widen your search radius',
   },
   priceLevel1: {
     en: '💸  (Under $100)',
