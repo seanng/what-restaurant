@@ -36,27 +36,27 @@ export const headings = [
 
 export const skipTexts = [
   {
-    en: 'Naw dawg',
+    en: 'Naw dawg. Show me another place!',
     zh: '別的地方',
   },
   {
-    en: "This place ain't it",
+    en: "This place ain't it. Show me another place!",
     zh: '別的地方',
   },
   {
-    en: "I'm not feelin it",
+    en: "I'm not feelin it. Show me another place!",
     zh: '別的地方',
   },
   {
-    en: 'Humor me with another place',
+    en: 'I want to eat somewhere else!',
     zh: '別的地方',
   },
   {
-    en: 'Show me another restaurant',
+    en: 'Show me another restaurant!',
     zh: '別的地方',
   },
   {
-    en: 'Fuck this place',
+    en: 'No thanks. I want to eat somewhere else!',
     zh: '別的地方',
   },
 ]
