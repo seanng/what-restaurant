@@ -12,19 +12,22 @@ function MainView({
   onSkipClick,
   onRadiusChange,
   radius,
+  shouldShowSkip,
   distance,
 }) {
   const googleMapLink = `${GOOGLE_PLACES_URL}/?api=1&query=${place.vicinity}&query_place_id=${place.place_id}`
 
   return (
     <div className="container">
-      <p className="text-base md:text-2xl mt-16 mb-10 uppercase">{heading}</p>
+      <p className="text-base md:text-2xl mt-12 mb-6 md:mt-16 md:mb-10 uppercase">
+        {heading}
+      </p>
       <h1 className="text-3xl md:text-5xl mb-2 md:mb-6 uppercase">
         <a href={googleMapLink} target="_blank" rel="noreferrer">
           {place.name}
         </a>
       </h1>
-      <p className="text-xs md:text-lg leading-relaxed mb-10 md:mb-16">
+      <p className="text-xs md:text-lg leading-relaxed mb-4 md:mb-7">
         <a href={googleMapLink} target="_blank" rel="noreferrer">
           {place.vicinity}
         </a>
@@ -33,23 +36,25 @@ function MainView({
       {place.rating && (
         <div className="inline-flex">
           <Stars rating={place.rating} />
-          <h2 className="text-lg md:text-2xl">{` (${place.rating})`}</h2>
+          <h2 className="text-base md:text-lg">{` (${place.rating})`}</h2>
         </div>
       )}
       {place.price_level && (
-        <h2 className="text-lg md:text-2xl mt-6 md:mt-12">
+        <h2 className="text-base md:text-lg mt-2 md:mt-4 whitespace-pre">
           {t[`priceLevel${place.price_level}`][language]}
         </h2>
       )}
-      <div className="mt-10 md:mt-16 mb-4 md:mb-8">
-        <span
-          aria-hidden
-          onClick={onSkipClick}
-          className="cursor-pointer uppercase font-semibold text-base md:text-2xl"
-        >
-          {skipText}
-        </span>
-      </div>
+      {shouldShowSkip && (
+        <div className="mt-10 md:mt-16 mb-4 md:mb-8">
+          <span
+            aria-hidden
+            onClick={onSkipClick}
+            className="cursor-pointer uppercase font-semibold text-base md:text-2xl text-blue-700"
+          >
+            {skipText}
+          </span>
+        </div>
+      )}
       <RadiusSelect
         radius={radius}
         language={language}

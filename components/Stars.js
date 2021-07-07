@@ -2,7 +2,7 @@
 export default function Stars({ rating }) {
   const percentage = `${rating * 20}%`
   return (
-    <svg viewBox="0 0 1000 200" className="h-5 md:h-8">
+    <svg viewBox="0 0 1000 200" className="h-4 md:h-5">
       <defs>
         <polygon
           id="star"

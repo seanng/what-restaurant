@@ -15,11 +15,11 @@ import {
   POSITION_PERMISSION_DENIED,
   // SUCCESS,
 } from 'utils/constants'
-import { getDistanceFromLatLon } from 'utils/helpers'
+import { getDistanceFromLatLon, getLanguageFromBrowser } from 'utils/helpers'
 import { INITIAL_RADIUS } from 'utils/configs'
 
 function IndexPage() {
-  const [language] = useState('en')
+  const [language, setLanguage] = useState('en')
   const [history, setHistory] = useState([])
   const [radius, setRadius] = useState(INITIAL_RADIUS)
   const router = useRouter()
@@ -38,6 +38,7 @@ function IndexPage() {
     mode,
     setRandomPlace,
     currentLatLng,
+    allPlaces,
     setPlace,
   } = useApi()
 
@@ -62,6 +63,7 @@ function IndexPage() {
 
   // initial load.
   useEffect(() => {
+    setLanguage(getLanguageFromBrowser())
     setRandomPrompts()
     fetchPlaces()
     // clear url in case someone shares a link with idx=<number>
@@ -127,6 +129,7 @@ function IndexPage() {
           onRadiusChange: handleRadiusChange,
           radius,
           distance,
+          shouldShowSkip: allPlaces.length > 1,
         }}
       />
       <SpinnerModal shouldOpen={mode === REFETCHING} />

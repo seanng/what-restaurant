@@ -1,3 +1,4 @@
+/* global navigator */
 import axios from 'axios'
 
 export function getRandom(list) {
@@ -51,4 +52,16 @@ export function getDistanceFromLatLon(lat1, lon1, lat2, lon2) {
 
 function deg2rad(deg) {
   return deg * (Math.PI / 180)
+}
+
+/** @see https://stackoverflow.com/a/36042028 */
+export function getLanguageFromBrowser() {
+  const browserLanguage = navigator.language
+  const supportedNonEnLanguages = ['zh-HK']
+
+  if (supportedNonEnLanguages.findIndex((v) => v === browserLanguage) > -1) {
+    return browserLanguage
+  }
+
+  return 'en'
 }
