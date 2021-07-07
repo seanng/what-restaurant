@@ -32,6 +32,10 @@ export const headings = [
     en: 'Yo I heard this place was lit af',
     zh: '去li lan間',
   },
+  {
+    en: "This place is poppin' off",
+    zh: '去li lan間',
+  },
 ]
 
 export const skipTexts = [

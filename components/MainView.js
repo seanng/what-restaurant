@@ -14,7 +14,7 @@ function MainView({
   radius,
   distance,
 }) {
-  const googleMapLink = `${GOOGLE_PLACES_URL}/?q=place_id:${place.place_id}`
+  const googleMapLink = `${GOOGLE_PLACES_URL}/?api=1&query=${place.vicinity}&query_place_id=${place.place_id}`
 
   return (
     <div className="container">
