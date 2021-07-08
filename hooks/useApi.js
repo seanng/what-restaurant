@@ -13,7 +13,7 @@ import {
   NO_GEOLOCATION,
 } from 'utils/constants'
 // import dummyResults from 'data/dummy-results'
-import { getRandom, sleep } from 'utils/helpers'
+import { getPlaceWithPhotoUrl, getRandom, sleep } from 'utils/helpers'
 import { INITIAL_RADIUS } from 'utils/configs'
 
 export default function useApi() {
@@ -24,10 +24,13 @@ export default function useApi() {
   const [place, setPlace] = useState(null)
   const [allPlaces, setAllPlaces] = useState([])
 
-  function setRandomPlace(list = allPlaces) {
-    const randomPlace = getRandom(list)
-    // const placeWithPhotoUrl = await getPlaceWithPhotoUrl(randomPlace)
-    setPlace(randomPlace)
+  async function setRandomPlace(list = allPlaces) {
+    let randomPlace
+    do {
+      randomPlace = getRandom(list)
+    } while (place?.place_id === randomPlace.place_id)
+    const placeWithPhotoUrl = await getPlaceWithPhotoUrl(randomPlace)
+    setPlace(placeWithPhotoUrl)
   }
 
   async function fetchPlaces(payload) {
@@ -67,7 +70,7 @@ export default function useApi() {
       }
       // during first iteration
       if (!pagetoken) {
-        setRandomPlace(data.results)
+        await setRandomPlace(data.results)
         setAllPlaces(data.results)
         cb()
       }

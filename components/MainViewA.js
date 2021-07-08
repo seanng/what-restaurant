@@ -4,7 +4,7 @@ import t from 'data/translations'
 import { GOOGLE_PLACES_URL } from 'utils/constants'
 import StickyFooter from 'components/StickyFooter'
 
-function MainView({
+function MainViewA({
   heading,
   skipText,
   place,
@@ -34,7 +34,7 @@ function MainView({
         <span className="ml-4 text-green-600">{`${distance} away`}</span>
       </p>
       {place.rating && (
-        <div className="inline-flex">
+        <div className="inline-flex -ml-3">
           <Stars rating={place.rating} />
           <h2 className="text-base md:text-lg">{` (${place.rating})`}</h2>
         </div>
@@ -65,4 +65,4 @@ function MainView({
   )
 }
 
-export default MainView
+export default MainViewA

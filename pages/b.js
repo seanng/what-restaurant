@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import LoadingView from 'components/LoadingView'
-import MainViewA from 'components/MainViewA'
+import MainViewB from 'components/MainViewB'
 import SpinnerModal from 'components/SpinnerModal'
 import LocationErrorView from 'components/LocationErrorView'
 import NoPlacesView from 'components/NoPlacesView'
@@ -67,7 +67,7 @@ function IndexPage() {
     setRandomPrompts()
     fetchPlaces()
     // clear url in case someone shares a link with idx=<number>
-    router.replace('/', '/', { shallow: true })
+    router.replace('/b', '/b', { shallow: true })
   }, [])
 
   const handleSkipClick = async () => {
@@ -119,7 +119,7 @@ function IndexPage() {
 
   return (
     <>
-      <MainViewA
+      <MainViewB
         {...{
           heading,
           skipText,

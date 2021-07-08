@@ -93,24 +93,24 @@ const translations = {
     'zh-HK': 'Widen your search radius',
   },
   priceLevel1: {
-    en: `💸  (Cheap!)`,
-    'zh-HK': '💸  (0 - $100)',
+    en: `💲  (Cheap!)`,
+    'zh-HK': '💲  (0 - $100)',
   },
   priceLevel2: {
-    en: `💸 💸  (Inexpensive)`,
-    'zh-HK': '💸 💸  ($100 - $200)',
+    en: `💲💲  (Inexpensive)`,
+    'zh-HK': '💲💲  ($100 - $200)',
   },
   priceLevel3: {
-    en: `💸 💸 💸  (Moderately priced)`,
-    'zh-HK': '💸 💸 💸  ($200 - $400)',
+    en: `💲💲💲  (Moderately priced)`,
+    'zh-HK': '💲💲💲  ($200 - $400)',
   },
   priceLevel4: {
-    en: `💸 💸 💸 💸  (Pricey!)`,
-    'zh-HK': '💸 💸 💸 💸  ($400 - $800)',
+    en: `💲💲💲💲  (Pricey!)`,
+    'zh-HK': '💲💲💲💲  ($400 - $800)',
   },
   priceLevel5: {
-    en: `💸 💸 💸 💸 💸   (Splurge! 🤑 )`,
-    'zh-HK': '💸 💸 💸 💸 💸  ($800+)',
+    en: `💲💲💲💲💲   (Splurge! 🤑 )`,
+    'zh-HK': '💲💲💲💲💲  ($800+)',
   },
   withinRadius: (radius) => ({
     en: `within ${getHumanReadableDistance(radius)} of my location`,
