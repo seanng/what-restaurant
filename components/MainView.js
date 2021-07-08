@@ -52,12 +52,12 @@ function MainViewB({
       {place.photoUrl && (
         <img
           alt="img"
-          className="mt-8 md:mt-13 h-auto max-h-80 w-full rounded-lg object-cover object-center"
+          className="mt-8 md:mt-13 h-auto max-h-80 w-full max-w-screen-sm rounded-lg object-cover object-center"
           src={place.photoUrl}
         />
       )}
       {shouldShowSkip && (
-        <div className="mt-10 md:mt-16 mb-4 md:mb-8">
+        <div className="mt-10 md:mt-16 mb-2 md:mb-4">
           <button
             type="button"
             className="inline-flex items-center px-6 py-3 uppercase whitespace-pre-wrap text-base md:text-2xl font-medium border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
