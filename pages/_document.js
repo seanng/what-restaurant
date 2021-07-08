@@ -10,9 +10,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/favicon.png" />
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-          <meta name="description" content="Random restaurant" />
         </Head>
         <body>
           <Main />
