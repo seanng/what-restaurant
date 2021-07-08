@@ -1,8 +1,9 @@
-import Stars from 'components/Stars'
+import Stars from 'components/StarsSvg'
 import RadiusSelect from 'components/RadiusSelect'
+import Container from 'components/Container'
 import t from 'data/translations'
+// import banner from 'public/banner.jpg'
 import { GOOGLE_PLACES_URL } from 'utils/constants'
-import StickyFooter from 'components/StickyFooter'
 
 function MainViewB({
   heading,
@@ -18,7 +19,8 @@ function MainViewB({
   const googleMapLink = `${GOOGLE_PLACES_URL}/?api=1&query=${place.vicinity}&query_place_id=${place.place_id}`
 
   return (
-    <div className="container">
+    <Container>
+      {/* <img alt="banner" className="w-full h-auto" src={banner} /> */}
       <p className="text-base md:text-2xl mt-12 mb-6 md:mt-16 md:mb-10 ">
         {heading}
       </p>
@@ -27,7 +29,7 @@ function MainViewB({
           {place.name}
         </a>
       </h1>
-      <p className="text-xs md:text-lg leading-relaxed whitespace-pre mb-4 md:mb-7">
+      <p className="text-xs md:text-lg leading-relaxed whitespace-prewrap mb-4 md:mb-7">
         <a href={googleMapLink} target="_blank" rel="noreferrer">
           {`📍  ${place.vicinity}`}
         </a>
@@ -50,19 +52,19 @@ function MainViewB({
       {place.photoUrl && (
         <img
           alt="img"
-          className="mt-8 md:mt-13 h-auto w-96 rounded-lg"
+          className="mt-8 md:mt-13 h-auto max-h-80 w-full rounded-lg object-cover object-center"
           src={place.photoUrl}
         />
       )}
       {shouldShowSkip && (
         <div className="mt-10 md:mt-16 mb-4 md:mb-8">
-          <span
-            aria-hidden
+          <button
+            type="button"
+            className="inline-flex items-center px-6 py-3 uppercase whitespace-pre-wrap text-base md:text-2xl font-medium border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             onClick={onSkipClick}
-            className="cursor-pointer whitespace-pre uppercase font-semibold text-base md:text-2xl text-blue-700"
           >
-            {`💁🏻   ${skipText} `}
-          </span>
+            {`${skipText}   💁🏻`}
+          </button>
         </div>
       )}
       <RadiusSelect
@@ -70,8 +72,7 @@ function MainViewB({
         language={language}
         onRadiusChange={onRadiusChange}
       />
-      <StickyFooter />
-    </div>
+    </Container>
   )
 }
 

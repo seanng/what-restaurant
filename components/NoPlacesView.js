@@ -1,10 +1,10 @@
 import t from 'data/translations'
-import StickyFooter from 'components/StickyFooter'
 import RadiusSelect from 'components/RadiusSelect'
+import Container from './Container'
 
 export default function NoPlacesView({ language, onRadiusChange, radius }) {
   return (
-    <div className="container">
+    <Container>
       <p className="text-base md:text-2xl mt-16 mb-10">
         {t.noPlacesNearbyPrompt(radius)[language]}
       </p>
@@ -16,7 +16,6 @@ export default function NoPlacesView({ language, onRadiusChange, radius }) {
         language={language}
         onRadiusChange={onRadiusChange}
       />
-      <StickyFooter />
-    </div>
+    </Container>
   )
 }

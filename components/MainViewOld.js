@@ -1,4 +1,4 @@
-import Stars from 'components/Stars'
+import Stars from 'components/StarsSvg'
 import RadiusSelect from 'components/RadiusSelect'
 import t from 'data/translations'
 import { GOOGLE_PLACES_URL } from 'utils/constants'

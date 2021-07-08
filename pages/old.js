@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import LoadingView from 'components/LoadingView'
-import MainViewB from 'components/MainViewB'
+import MainViewOld from 'components/MainViewOld'
 import SpinnerModal from 'components/SpinnerModal'
 import LocationErrorView from 'components/LocationErrorView'
 import NoPlacesView from 'components/NoPlacesView'
@@ -67,7 +67,7 @@ function IndexPage() {
     setRandomPrompts()
     fetchPlaces()
     // clear url in case someone shares a link with idx=<number>
-    router.replace('/b', '/b', { shallow: true })
+    router.replace('/old', '/old', { shallow: true })
   }, [])
 
   const handleSkipClick = async () => {
@@ -77,7 +77,7 @@ function IndexPage() {
     // update history
     const idx = Number(router.query.idx || 0)
     const isAtPastPlace = idx < history.length
-    const href = `/?idx=${idx + 1}`
+    const href = `/old?idx=${idx + 1}`
     if (isAtPastPlace) {
       setHistory((v) => v.slice(0, idx).concat([{ place, heading, skipText }]))
     }
@@ -119,7 +119,7 @@ function IndexPage() {
 
   return (
     <>
-      <MainViewB
+      <MainViewOld
         {...{
           heading,
           skipText,

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import LoadingView from 'components/LoadingView'
-import MainViewA from 'components/MainViewA'
+import MainView from 'components/MainView'
 import SpinnerModal from 'components/SpinnerModal'
 import LocationErrorView from 'components/LocationErrorView'
 import NoPlacesView from 'components/NoPlacesView'
@@ -119,7 +119,7 @@ function IndexPage() {
 
   return (
     <>
-      <MainViewA
+      <MainView
         {...{
           heading,
           skipText,
