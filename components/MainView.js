@@ -63,7 +63,7 @@ function MainViewB({
             className="inline-flex items-center px-6 py-3 uppercase whitespace-pre-wrap text-base md:text-2xl font-medium border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             onClick={onSkipClick}
           >
-            {`${skipText}   💁🏻`}
+            {skipText}
           </button>
         </div>
       )}
