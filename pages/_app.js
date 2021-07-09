@@ -1,22 +1,22 @@
 import Head from 'next/head'
+import { metadata } from 'utils/configs'
 import 'tailwindcss/tailwind.css'
 import 'styles/globals.css'
-
-const description =
-  "Can't decide what to eat? Let us generate a random restaurant near you"
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Hangry! What restaurant?</title>
+        <title>{metadata.SITE_TITLE}</title>
         <link rel="icon" href="/favicon.png" />
-        <link rel="canonical" href="https://what.restaurant" />
-        <meta name="description" content={description} />
+        <link rel="canonical" href={metadata.SITE_URL} />
+        <link rel="manifest" href="manifest.webmanifest" />
+        <meta name="description" content={metadata.SITE_DESCRIPTION} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content={metadata.SITE_TITLE} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/banner.jpg" />
-        <meta property="og:description" content={description} />
+        <meta property="og:image" content={`${metadata.SITE_URL}/banner.jpg`} />
+        <meta property="og:description" content={metadata.SITE_DESCRIPTION} />
       </Head>
       <Component {...pageProps} />
     </>

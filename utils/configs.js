@@ -12,3 +12,10 @@ export const radiuses = [
   7500,
   10000,
 ]
+
+export const metadata = {
+  SITE_URL: 'https://what.restaurant',
+  SITE_TITLE: 'Hangry! What restaurant?',
+  SITE_DESCRIPTION:
+    "Can't decide what to eat? Let us generate a random restaurant near you",
+}
