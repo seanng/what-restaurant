@@ -21,7 +21,7 @@ function MainViewB({
   return (
     <Container>
       {/* <img alt="banner" className="w-full h-auto" src={banner} /> */}
-      <p className="text-base md:text-2xl mt-12 mb-6 md:mt-16 md:mb-10 ">
+      <p className="text-base md:text-2xl mt-8 mb-3 md:mt-12 md:mb-5 ">
         {heading}
       </p>
       <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-6 ">
