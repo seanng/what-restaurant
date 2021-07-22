@@ -1,17 +1,7 @@
 export const INITIAL_RADIUS = 800
-export const radiuses = [
-  100,
-  200,
-  400,
-  800,
-  1000,
-  1500,
-  2000,
-  2500,
-  5000,
-  7500,
-  10000,
-]
+export const MIN_RADIUS = 100
+export const MAX_RADIUS = 1000
+export const RADIUS_STEP = 5
 
 export const metadata = {
   SITE_URL: 'https://what.restaurant',

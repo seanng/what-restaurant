@@ -13,7 +13,6 @@ import {
   REFETCHING,
   LOADING,
   POSITION_PERMISSION_DENIED,
-  // SUCCESS,
 } from 'utils/constants'
 import { getDistanceFromLatLon, getLanguageFromBrowser } from 'utils/helpers'
 import { INITIAL_RADIUS } from 'utils/configs'
@@ -24,13 +23,7 @@ function IndexPage() {
   const [radius, setRadius] = useState(INITIAL_RADIUS)
   const router = useRouter()
 
-  const {
-    setRandomPrompts,
-    heading,
-    skipText,
-    setSkipText,
-    setHeading,
-  } = useRandomTexts(language)
+  const { setRandomPrompts, skipText, setSkipText } = useRandomTexts(language)
 
   const {
     fetchPlaces,
@@ -46,14 +39,12 @@ function IndexPage() {
     const idx = Number(router.query.idx || 0)
     if (history[idx]) {
       setPlace(history[idx].place)
-      setHeading(history[idx].heading)
       setSkipText(history[idx].skipText)
     } else {
       setHistory((v) =>
         v.concat([
           {
             place,
-            heading,
             skipText,
           },
         ])
@@ -79,16 +70,24 @@ function IndexPage() {
     const isAtPastPlace = idx < history.length
     const href = `/?idx=${idx + 1}`
     if (isAtPastPlace) {
-      setHistory((v) => v.slice(0, idx).concat([{ place, heading, skipText }]))
+      setHistory((v) => v.slice(0, idx).concat([{ place, skipText }]))
     }
     router.push(href, href, { shallow: true })
   }
 
-  const handleRadiusChange = async (el) => {
-    const { value } = el.target
-    setRadius(Number(value))
-    await fetchPlaces({ radius: value })
-    setRandomPrompts()
+  const handleRadiusChange = async (val) => {
+    const [value] = val
+    setRadius(value)
+    // await fetchPlaces({ radius: value })
+    // setRandomPrompts()
+  }
+
+  const handleFinalRadiusChange = async (val) => {
+    const [value] = val
+    // setRadius(value)
+    console.log('final value: ', value)
+    // await fetchPlaces({ radius: value })
+    // setRandomPrompts()
   }
 
   if (mode === LOADING) {
@@ -99,11 +98,20 @@ function IndexPage() {
     return <LocationErrorView language={language} />
   }
 
+  const radiusSliderOptions = {
+    onChange: handleRadiusChange,
+    onFinalChange: handleFinalRadiusChange,
+    radius,
+  }
+
   if (!place) {
     return (
       <>
         <NoPlacesView
-          {...{ language, radius, onRadiusChange: handleRadiusChange }}
+          {...{
+            language,
+            radiusSliderOptions,
+          }}
         />
         <SpinnerModal shouldOpen={mode === REFETCHING} />
       </>
@@ -121,13 +129,11 @@ function IndexPage() {
     <>
       <MainView
         {...{
-          heading,
           skipText,
           place,
           language,
           onSkipClick: handleSkipClick,
-          onRadiusChange: handleRadiusChange,
-          radius,
+          radiusSliderOptions,
           distance,
           shouldShowSkip: allPlaces.length > 1,
         }}

@@ -35,7 +35,8 @@
     "ramda": "^0.27.1",
     "react": "17.0.1",
     "react-dom": "latest",
-    "react-hook-form": "^7.4.0"
+    "react-hook-form": "^7.4.0",
+    "react-range": "^1.8.9"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",

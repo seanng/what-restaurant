@@ -2,8 +2,8 @@ import { getHumanReadableDistance } from 'utils/helpers'
 
 export const loadingTexts = [
   {
-    en: 'FINDING NEARBY RESTAURANTS...',
-    'zh-HK': 'FINDING NEARBY RESTAURANTS...',
+    en: 'Finding nearby restaurants...',
+    'zh-HK': 'Finding nearby restaurants...',
   },
 ]
 
@@ -45,7 +45,7 @@ export const skipTexts = [
   // },
   // {
   //   en: "This place ain't it. Show me another place!",
-  //   zh: '別的地方',
+  //   zh: '別的地方',s
   // },
   // {
   //   en: "I'm not feelin it. Show me another place!",
@@ -71,8 +71,14 @@ export const skipTexts = [
 
 const translations = {
   enableLocationHeading: {
-    en: 'ENABLE YOUR LOCATION',
-    'zh-HK': 'ENABLE YOUR LOCATION',
+    en: "We're unable to detect your current location",
+    'zh-HK': "We're unable to detect your current location",
+  },
+  enableLocationDescription: {
+    en:
+      'Enable your current location and refresh the page to see nearby restaurants.',
+    'zh-HK':
+      'Enable your current location and refresh the page to see nearby restaurants.',
   },
   enableLocationPrompt: {
     en: 'Refresh this page after you',
@@ -82,35 +88,47 @@ const translations = {
     en: 'Expand my search radius',
     'zh-HK': 'Expand my search radius',
   },
-  noPlacesNearbyPrompt: (radius) => ({
-    en: `No places are open within ${getHumanReadableDistance(
-      radius
-    )} of your current location`,
-    'zh-HK': 'There are no places in the selected vicinity.',
-  }),
+  howFar: {
+    en: 'How far from my location',
+    'zh-HK': 'How far from my location',
+  },
+  // noPlacesNearbyPrompt: (radius) => ({
+  //   en: `No places are open within ${getHumanReadableDistance(
+  //     radius
+  //   )} of your current location`,
+  //   'zh-HK': 'There are no places in the selected vicinity.',
+  // }),
   noPlacesNearbyHeading: {
-    en: 'Widen your search radius',
-    'zh-HK': 'Widen your search radius',
+    en: 'It seems like there are no restaurants nearby',
+    'zh-HK': 'It seems like there are no restaurants nearby',
+  },
+  noPlacesNearbyDescription: {
+    en: 'Please try adjusting the distance',
+    'zh-HK': 'Please try adjusting the distance',
   },
   priceLevel1: {
-    en: `💲  (Cheap!)`,
-    'zh-HK': '💲  (0 - $100)',
+    en: `$`,
+    'zh-HK': '$',
   },
   priceLevel2: {
-    en: `💲💲  (Inexpensive)`,
-    'zh-HK': '💲💲  ($100 - $200)',
+    en: `$$`,
+    'zh-HK': '$$',
   },
   priceLevel3: {
-    en: `💲💲💲  (Moderately priced)`,
-    'zh-HK': '💲💲💲  ($200 - $400)',
+    en: `$$$`,
+    'zh-HK': '$$$',
   },
   priceLevel4: {
-    en: `💲💲💲💲  (Pricey!)`,
-    'zh-HK': '💲💲💲💲  ($400 - $800)',
+    en: `$$$$`,
+    'zh-HK': '$$$$',
   },
   priceLevel5: {
-    en: `💲💲💲💲💲   (Splurge! 🤑 )`,
-    'zh-HK': '💲💲💲💲💲  ($800+)',
+    en: `$$$$$`,
+    'zh-HK': '$$$$$',
+  },
+  refreshThisPage: {
+    en: 'REFRESH THIS PAGE 👈',
+    'zh-HK': 'REFRESH THIS PAGE 👈',
   },
   withinRadius: (radius) => ({
     en: `within ${getHumanReadableDistance(radius)} of my location`,

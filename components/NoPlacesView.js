@@ -1,20 +1,28 @@
+import Image from 'next/image'
 import t from 'data/translations'
-import RadiusSelect from 'components/RadiusSelect'
+import RadiusSlider from 'components/RadiusSelect'
 import Container from './Container'
+import Card from './Card'
+import H2 from './H2'
 
-export default function NoPlacesView({ language, onRadiusChange, radius }) {
+export default function NoPlacesView({ language, radiusSliderOptions }) {
   return (
     <Container>
-      <p className="text-base md:text-2xl mt-16 mb-10">
-        {t.noPlacesNearbyPrompt(radius)[language]}
-      </p>
-      <h1 className="text-3xl md:text-5xl mb-2 md:mb-6 uppercase">
-        {t.noPlacesNearbyHeading[language]}
-      </h1>
-      <RadiusSelect
-        radius={radius}
+      <Card>
+        <H2>{t.noPlacesNearbyHeading[language]}</H2>
+        <div>{t.noPlacesNearbyDescription[language]}</div>
+        <div className="flex justify-center mt-10 mb-7">
+          <Image
+            src="/thinking.png"
+            alt="thinking face"
+            height={80}
+            width={80}
+          />
+        </div>
+      </Card>
+      <RadiusSlider
         language={language}
-        onRadiusChange={onRadiusChange}
+        radiusSliderOptions={radiusSliderOptions}
       />
     </Container>
   )
