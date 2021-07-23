@@ -42,7 +42,7 @@ function MainView({
             {`📍  ${place.vicinity}`}
           </a>
         </p>
-        <div className="flex flex-row text-xs mt-8 font-normal">
+        <div className="flex flex-row text-xs mt-4 font-normal">
           <div className="flex flex-row items-center mr-5">
             <span role="img" aria-label="walk" className="text-lg mr-2">
               🚶🏻

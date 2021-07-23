@@ -9,7 +9,7 @@ export default function RadiusSlider({ radiusSliderOptions, language }) {
   return (
     <div className="mt-5">
       <Card>
-        <p className="mb-5 text-sm">{t.howFar[language]}</p>
+        <p className="mb-4 text-sm">{t.howFar[language]}</p>
         <div className="flex flex-row items-center">
           <div className="relative w-full">
             <Nouislider
