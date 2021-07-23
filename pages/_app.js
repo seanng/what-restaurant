@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { metadata } from 'utils/configs'
 import 'tailwindcss/tailwind.css'
+import 'nouislider/distribute/nouislider.css'
 import 'styles/globals.css'
 
 function MyApp({ Component, pageProps }) {

@@ -2769,6 +2769,18 @@ normalize-range@^0.1.2:
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=
 
+nouislider-react@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/nouislider-react/-/nouislider-react-3.4.0.tgz#e0c4409493e465ab13233bb88e8b8bf93906b457"
+  integrity sha512-csrcnqSthrwb+91bcKj3OQM53AbwEECZ5OpgBQB53fhyp1o29QIn0Z5Nl/6yEbJ7JJeprSX7CM3ahwuP8z17UQ==
+  dependencies:
+    nouislider "^14.6.3"
+
+nouislider@^14.6.3:
+  version "14.7.0"
+  resolved "https://registry.yarnpkg.com/nouislider/-/nouislider-14.7.0.tgz#a71db0587c92567b6da1df57d251d3696d942362"
+  integrity sha512-4RtQ1+LHJKesDCNJrXkQcwXAWCrC2aggdLYMstS/G5fEWL+fXZbUA9pwVNHFghMGuFGRATlDLNInRaPeRKzpFQ==
+
 npm-run-path@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-4.0.1.tgz#b7ecd1e5ed53da8e37a55e1c2269e0b97ed748ea"
@@ -3332,11 +3344,6 @@ react-is@16.13.1, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-range@^1.8.9:
-  version "1.8.9"
-  resolved "https://registry.yarnpkg.com/react-range/-/react-range-1.8.9.tgz#4d8f6ed44eddbc493d3272dc5f71fab367d9efae"
-  integrity sha512-rDR9NEmIYBsMYJY+bCTnY17I1NT9jlI0m2wM2yiddkRN6GygTGjylTnNGlpAh8chohABwb58XCtyOIvRGcTosw==
 
 react-refresh@0.8.3:
   version "0.8.3"

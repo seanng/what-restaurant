@@ -1,4 +1,4 @@
-import RadiusSlider from 'components/RadiusSelect'
+import RadiusSlider from 'components/RadiusSlider'
 import Container from 'components/Container'
 import t from 'data/translations'
 // import banner from 'public/banner.jpg'

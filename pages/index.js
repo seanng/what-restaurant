@@ -76,18 +76,14 @@ function IndexPage() {
   }
 
   const handleRadiusChange = async (val) => {
-    const [value] = val
+    const value = Number(val).toFixed()
     setRadius(value)
-    // await fetchPlaces({ radius: value })
-    // setRandomPrompts()
   }
 
   const handleFinalRadiusChange = async (val) => {
-    const [value] = val
-    // setRadius(value)
-    console.log('final value: ', value)
-    // await fetchPlaces({ radius: value })
-    // setRandomPrompts()
+    const value = Number(val).toFixed()
+    await fetchPlaces({ radius: value })
+    setRandomPrompts()
   }
 
   if (mode === LOADING) {

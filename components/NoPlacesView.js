@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import t from 'data/translations'
-import RadiusSlider from 'components/RadiusSelect'
+import RadiusSlider from 'components/RadiusSlider'
 import Container from './Container'
 import Card from './Card'
 import H2 from './H2'
