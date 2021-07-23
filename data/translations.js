@@ -52,16 +52,12 @@ export const skipTexts = [
   //   zh: '別的地方',
   // },
   {
-    en: 'I want to eat somewhere else',
-    'zh-HK': 'I want to eat somewhere else',
+    en: 'SHOW ME ANOTHER PLACE 🖖',
+    'zh-HK': 'SHOW ME ANOTHER PLACE 🖖',
   },
   {
-    en: 'Show me another restaurant',
-    'zh-HK': 'Show me another restaurant',
-  },
-  {
-    en: 'Show me another place',
-    'zh-HK': 'Show me another place',
+    en: 'THANK YOU NEXT 🙏',
+    'zh-HK': 'THANK YOU NEXT 🙏',
   },
   // {
   //   en: 'No thanks. I want to eat somewhere else!',
@@ -89,8 +85,8 @@ const translations = {
     'zh-HK': 'Expand my search radius',
   },
   howFar: {
-    en: 'How far from my location',
-    'zh-HK': 'How far from my location',
+    en: 'Adjust search radius:',
+    'zh-HK': 'Adjust search radius:',
   },
   // noPlacesNearbyPrompt: (radius) => ({
   //   en: `No places are open within ${getHumanReadableDistance(

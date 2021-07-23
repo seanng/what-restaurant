@@ -32,7 +32,7 @@ function MainView({
             </div>
           </div>
         )}
-        <h3 className="text-xl mt-8 mb-2">
+        <h3 className="text-xl mt-8 mb-2 font-semibold">
           <a href={googleMapLink} target="_blank" rel="noreferrer">
             {place.name}
           </a>
@@ -42,9 +42,16 @@ function MainView({
             {`📍  ${place.vicinity}`}
           </a>
         </p>
-        <div className="flex flex-row text-xs mt-8">
+        <div className="flex flex-row text-xs mt-8 font-normal">
+          <div className="flex flex-row items-center mr-5">
+            <span role="img" aria-label="walk" className="text-lg mr-2">
+              🚶🏻
+            </span>
+            <span className="mt-1 mr-5">{`${distance} away`}</span>
+          </div>
           {place.price_level && (
-            <div className="flex flex-row items-center mr-5">
+            <div className="flex flex-row items-center">
+              <span className="text-gray-400 mt-1">|</span>
               {/* TODO: replace emoji with image. */}
               <span role="img" aria-label="money-bag" className="text-lg mr-2">
                 💰
@@ -52,15 +59,8 @@ function MainView({
               <span className="mt-1 mr-5">
                 {t[`priceLevel${place.price_level}`][language]}
               </span>
-              <span className="text-gray-400 mt-1">|</span>
             </div>
           )}
-          <div className="flex flex-row items-center">
-            <span role="img" aria-label="walk" className="text-lg mr-2">
-              🚶🏻
-            </span>
-            <span className="mt-1 mr-5">{`${distance} away`}</span>
-          </div>
         </div>
       </Card>
       <RadiusSlider

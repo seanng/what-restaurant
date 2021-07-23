@@ -9,7 +9,7 @@ export default function RadiusSlider({ radiusSliderOptions, language }) {
   return (
     <div className="mt-5">
       <Card>
-        <p className="mb-5">{t.howFar[language]}</p>
+        <p className="mb-5 text-sm">{t.howFar[language]}</p>
         <div className="flex flex-row items-center">
           <div className="relative w-full">
             <Nouislider
@@ -23,10 +23,10 @@ export default function RadiusSlider({ radiusSliderOptions, language }) {
                 max: [5000],
               }}
               onSlide={onChange}
-              onUpdate={onFinalChange}
+              onChange={onFinalChange}
             />
           </div>
-          <div className="w-24 text-right">{`${radius} m`}</div>
+          <div className="w-48 text-right text-sm">{`within ${radius} m`}</div>
         </div>
       </Card>
     </div>
