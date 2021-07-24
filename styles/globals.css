@@ -5,7 +5,6 @@
 body {
   background-color: #FCD228;
   background-image: url('../public/vector-overlay.png');
-  background-size: contain;
   padding-top: 2rem;
 }
 
