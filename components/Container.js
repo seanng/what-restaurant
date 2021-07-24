@@ -1,4 +1,5 @@
 import StickyFooter from 'components/StickyFooter'
+import Image from 'next/image'
 
 export default function Container({ children, ...props }) {
   return (
@@ -12,6 +13,15 @@ export default function Container({ children, ...props }) {
       }}
       {...props}
     >
+      <div className="mb-3">
+        <Image
+          className="rounded-md"
+          src="/banner.jpg"
+          width={400}
+          height={90}
+          alt="hello"
+        />
+      </div>
       {children}
       <StickyFooter />
     </div>

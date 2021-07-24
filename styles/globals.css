@@ -4,7 +4,8 @@
 
 body {
   background-color: #FCD228;
-  padding-top: 4.5rem;
+  background-image: url('../public/vector-overlay.png');
+  padding-top: 2rem;
 }
 
 /* customize slider */
